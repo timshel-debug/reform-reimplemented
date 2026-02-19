@@ -1,0 +1,93 @@
+%% docs/diagrams/solution.mermaid
+
+%% Context
+flowchart TB
+  customer[Customer] --> ui[Design Lab UI (Editor)]
+  admin[Admin/Operations] --> adminui[Admin UI]
+  ui --> platform[Existing Platform]
+  platform --> decorApi[Decoration API]
+  decorApi --> workers[Render/Export Workers]
+  decorApi --> db[(Decoration DB)]
+  decorApi --> obj[(Object Storage)]
+  platform --> sf[Salesforce (Product Config)]
+  decorApi --> third[Third-Party Decoration Service (Legacy)]
+
+%% Container
+flowchart LR
+  subgraph Owned[Owned Decoration Platform]
+    api[Decoration API]
+    q[[Job Queue]]
+    w[Workers]
+    db2[(Relational DB)]
+    s3[(Object Storage)]
+    api --> db2
+    api --> s3
+    api --> q
+    w --> q
+    w --> s3
+    w --> db2
+  end
+  plat[Existing Platform] --> api
+  api --> third2[Third-Party Legacy API]
+  plat --> sf2[Salesforce Sync Read Model]
+
+%% Sequence (E2E)
+sequenceDiagram
+  participant U as Customer
+  participant UI as Design Lab UI
+  participant P as Platform
+  participant A as Decoration API
+  participant Q as Queue
+  participant W as Worker
+  participant S as Object Storage
+
+  U->>UI: Edit decoration
+  UI->>P: Save full design
+  P->>A: POST /designs/{designId}/decoration/revisions
+  A-->>P: 201 {designRevisionId}
+
+  P->>A: POST /previews
+  A->>Q: Enqueue preview job
+  W->>Q: Dequeue
+  W->>S: Write preview artifact
+  P->>A: GET /previews/{id}
+  A-->>P: artifact URL
+
+  P->>A: POST /exports
+  A->>Q: Enqueue export job
+  W->>Q: Dequeue
+  W->>S: Write export artifact
+  P->>A: GET /exports/{id}
+  A-->>P: artifact URL
+
+%% ER
+erDiagram
+  DESIGNS ||--o{ DESIGN_REVISIONS : has
+  DESIGN_REVISIONS ||--o{ REVISION_ELEMENTS : contains
+  ASSETS ||--o{ REVISION_ELEMENTS : references
+  DESIGN_REVISIONS ||--o{ JOBS_PREVIEW : generates
+  DESIGN_REVISIONS ||--o{ JOBS_EXPORT : generates
+  JOBS_PREVIEW ||--o| ARTIFACTS : produces
+  JOBS_EXPORT ||--o| ARTIFACTS : produces
+
+%% Deployment + trust boundaries
+flowchart TB
+  subgraph Untrusted[Untrusted]
+    b[Browser]
+    t[Third-party]
+  end
+  subgraph Trusted[Trusted (AWS)]
+    ing[Ingress]
+    api2[API]
+    q2[[Queue]]
+    w2[Workers]
+    db3[(DB)]
+    s3b[(Object Storage)]
+  end
+  b --> ing --> api2
+  api2 --> db3
+  api2 --> s3b
+  api2 --> q2
+  w2 --> q2
+  w2 --> s3b
+  api2 --> t

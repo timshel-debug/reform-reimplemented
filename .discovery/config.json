@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "providers": {
+    "copilot_cli": {
+      "executable_candidates": [
+        "copilot.cmd",
+        "copilot.exe"
+      ],
+      "executable_path": "C:\\nvm4w\\nodejs\\copilot.cmd",
+      "base_args": [],
+      "supports_stdin": true,
+      "supports_interactive": true,
+      "supports_model_override": false,
+      "agent_name": "disco-discovery",
+      "interactive_args_template": [
+        "-p",
+        "{objective}",
+        "--allow-tool",
+        "read",
+        "--deny-tool",
+        "write",
+        "shell"
+      ]
+    },
+    "copilot_gh_legacy": {
+      "executable_candidates": [
+        "gh"
+      ],
+      "base_args": [
+        "copilot",
+        "suggest"
+      ],
+      "supports_stdin": true,
+      "supports_interactive": true,
+      "supports_model_override": false,
+      "agent_name": "disco-discovery",
+      "interactive_args_template": [
+        "{objective}"
+      ]
+    }
+  },
+  "approvals_mode": "prompt",
+  "default_provider": "copilot_cli",
+  "write_allowlist": [
+    ".discovery/**",
+    "docs/discovery/**",
+    "docs/backlog/**",
+    "docs/traceability/**"
+  ],
+  "read_allowlist": [
+    "docs/**",
+    "src/**",
+    ".discovery/**",
+    "REQUIREMENTS.md",
+    "**/REQUIREMENTS*.md"
+  ],
+  "log": {
+    "response_bodies": "summary",
+    "max_run_bytes": 262144000,
+    "retention_days": 30,
+    "max_runs": 200
+  },
+  "context_pack": {
+    "max_bytes": 1500000,
+    "max_tokens": 100000,
+    "token_safety_margin": 0.8,
+    "budget_mode": "strict",
+    "intake_globs": [
+      ".discovery/intake/**/*.md",
+      "docs/intake/**/*.md",
+      "docs/meeting-notes/**/*.md",
+      "docs/stakeholders/**/*.md"
+    ],
+    "mode": "inline",
+    "redaction_patterns": [
+      "(?i)(api[_-]?key|password|secret|token)\\s*[:=]\\s*[\u0027\u0022]?[a-zA-Z0-9_\\-]{8,}[\u0027\u0022]?",
+      "(?i)bearer\\s\u002B[a-zA-Z0-9_\\-\\.]{20,}",
+      "-----BEGIN\\s\u002B(?:RSA\\s\u002B)?PRIVATE\\s\u002BKEY-----[\\s\\S]*?-----END\\s\u002B(?:RSA\\s\u002B)?PRIVATE\\s\u002BKEY-----"
+    ],
+    "include_requirement_summary": true,
+    "phase_allowlist": {
+      "brd": [
+        "docs/requirements/**",
+        "**/REQUIREMENTS*.md",
+        "docs/discovery/DOMAIN_SUMMARY.md",
+        "docs/discovery/DECISIONS.md",
+        "docs/discovery/BRD.md"
+      ],
+      "intake": [
+        "docs/**",
+        "**/REQUIREMENTS*.md",
+        "README.md"
+      ],
+      "domain": [
+        "docs/requirements/**",
+        "**/REQUIREMENTS*.md",
+        "docs/discovery/NORTH_STAR.md"
+      ],
+      "decisions": [
+        "docs/requirements/**",
+        "**/REQUIREMENTS*.md",
+        "docs/discovery/NORTH_STAR.md",
+        "docs/discovery/DOMAIN_PACK.md"
+      ]
+    }
+  },
+  "determinism_policy": "repair_and_continue",
+  "artifact_overgeneration_policy": "fail_fast",
+  "missing_info_policy": "interactive",
+  "backlog": {
+    "initial_status": "needs_refinement",
+    "auto_ready": {
+      "enabled": true,
+      "mode": "all",
+      "max_ready_slices_per_run": 1,
+      "min_ready": 1,
+      "min_acceptance_criteria": 3,
+      "max_acceptance_criteria": 7
+    },
+    "strict_validation": true
+  },
+  "planning": {
+    "mode": "incremental",
+    "enable_auto_split": true,
+    "enable_runnability_validator": true,
+    "enable_mediator_closure_validation": true,
+    "enable_referenced_type_closure": false,
+    "enable_shared_contract_isolation": false
+  },
+  "auto_derive": {
+    "enabled": true,
+    "start_id": 2000,
+    "max_items": 25,
+    "output_path": "docs/requirements/sources/REQ-2000-auto-derived.md"
+  },
+  "provider_model_routing": {
+    "enabled": true,
+    "premium_model": "claude-opus-4.6",
+    "fallback_model": "claude-haiku-4.5",
+    "premium_first": true,
+    "use_bulk_with_premium": true,
+    "fail_on_disabled": false,
+    "max_premium_sessions": 1,
+    "bulk_first_session": true,
+    "handoff_artifact_path": "docs/discovery/OPUS_HANDOFF.md"
+  }
+}

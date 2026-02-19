@@ -1,0 +1,5 @@
+
+# BEGIN: agent-managed block
+.discovery/runs/
+.discovery/state.json
+# END: agent-managed block

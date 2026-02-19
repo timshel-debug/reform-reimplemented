@@ -1,0 +1,35 @@
+{
+  "source_file": "docs/requirements/sources/REQ-2000-auto-derived.md",
+  "mappings": [
+    {
+      "requirement_id": "REQ-2000",
+      "line_start": 6,
+      "line_end": 9,
+      "content_hash": "a4a47a3d4248166a"
+    },
+    {
+      "requirement_id": "REQ-2001",
+      "line_start": 10,
+      "line_end": 13,
+      "content_hash": "fb45f74e258ab4af"
+    },
+    {
+      "requirement_id": "REQ-2002",
+      "line_start": 14,
+      "line_end": 17,
+      "content_hash": "23b26ddbcd45d2a0"
+    },
+    {
+      "requirement_id": "REQ-2003",
+      "line_start": 18,
+      "line_end": 21,
+      "content_hash": "839af7b99f0a2ae5"
+    },
+    {
+      "requirement_id": "REQ-2004",
+      "line_start": 22,
+      "line_end": 26,
+      "content_hash": "d28ef0ec52b59010"
+    }
+  ]
+}

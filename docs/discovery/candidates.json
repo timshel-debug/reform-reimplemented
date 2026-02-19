@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "count": 14,
+  "candidates": [
+    {
+      "id": "CAND-f444af70",
+      "source_file": "docs/00_Assumptions_and_OpenQuestions.md",
+      "line": 35,
+      "statement": "TODO: confirm exact window and whether \u201Cexport artifacts must be stored\u201D vs \u201Cinputs must be stored and re-rendered\u201D.",
+      "keyword": "MUST",
+      "raw_text": "* TODO: confirm exact window and whether \u201Cexport artifacts must be stored\u201D vs \u201Cinputs must be stored and re-rendered\u201D.",
+      "classification": "derived",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-65419e90",
+      "source_file": "docs/00_Assumptions_and_OpenQuestions.md",
+      "line": 40,
+      "statement": "Risk/Impact: if platform uses per-cart/session identifiers, decoration data modeling must change.",
+      "keyword": "MUST",
+      "raw_text": "* Risk/Impact: if platform uses per-cart/session identifiers, decoration data modeling must change. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-064324a4",
+      "source_file": "docs/00_Assumptions_and_OpenQuestions.md",
+      "line": 77,
+      "statement": "Risk/Impact: if third-party export is not reliable, platform must pre-cache exports earlier or enforce cutoff policy.",
+      "keyword": "MUST",
+      "raw_text": "* Risk/Impact: if third-party export is not reliable, platform must pre-cache exports earlier or enforce cutoff policy. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-74d02fd1",
+      "source_file": "docs/03_Architecture.md",
+      "line": 121,
+      "statement": "Legacy editing policy is a design-exit decision (OQ-A-0002) but must be deterministic in both UI and APIs:",
+      "keyword": "MUST",
+      "raw_text": "Legacy editing policy is a design-exit decision (OQ-A-0002) but must be deterministic in both UI and APIs:",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-35818020",
+      "source_file": "docs/04_Domain_Model.md",
+      "line": 12,
+      "statement": "Must satisfy constraint engine at save time.",
+      "keyword": "MUST",
+      "raw_text": "* Must satisfy constraint engine at save time. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-b29148bf",
+      "source_file": "docs/08_Operations.md",
+      "line": 10,
+      "statement": "New designs must not depend on third-party (NFR-0002).",
+      "keyword": "MUST NOT",
+      "raw_text": "* New designs must not depend on third-party (NFR-0002). ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-32592bdd",
+      "source_file": "docs/08_Operations.md",
+      "line": 12,
+      "statement": "Legacy orderability policy for third-party outage must cover first-time export scenarios via pre-generation, migration, and/or alternate retained artifact workflow.",
+      "keyword": "MUST",
+      "raw_text": "* Legacy orderability policy for third-party outage must cover first-time export scenarios via pre-generation, migration, and/or alternate retained artifact workflow. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-501014c9",
+      "source_file": "docs/08_Operations.md",
+      "line": 25,
+      "statement": "Legacy export artifact retention duration must be explicit and policy-enforced; minimum guidance is \u003E= 12 months pending OQ-A-0004 confirmation.",
+      "keyword": "MUST",
+      "raw_text": "* Legacy export artifact retention duration must be explicit and policy-enforced; minimum guidance is \u003E= 12 months pending OQ-A-0004 confirmation. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-fa53f2e6",
+      "source_file": "docs/adr/ADR-0001-deploy-api-and-workers.md",
+      "line": 7,
+      "statement": "Preview and export workloads must support horizontal scaling and should not block interactive editing.",
+      "keyword": "MUST",
+      "raw_text": "Preview and export workloads must support horizontal scaling and should not block interactive editing. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-25fe19be",
+      "source_file": "docs/adr/ADR-0002-relational-plus-object-storage.md",
+      "line": 7,
+      "statement": "Must persist editable state and binary artifacts for months.",
+      "keyword": "MUST",
+      "raw_text": "Must persist editable state and binary artifacts for months. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-8d2ada16",
+      "source_file": "docs/adr/ADR-0004-export-determinism-envelope.md",
+      "line": 7,
+      "statement": "Exports must be reproducible for a saved design state.",
+      "keyword": "MUST",
+      "raw_text": "Exports must be reproducible for a saved design state. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-5b957070",
+      "source_file": "docs/adr/ADR-0005-legacy-dualrun-and-cache.md",
+      "line": 7,
+      "statement": "Legacy designs must remain orderable for retention window and rely on immutable third-party service.",
+      "keyword": "MUST",
+      "raw_text": "Legacy designs must remain orderable for retention window and rely on immutable third-party service. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-6d048b52",
+      "source_file": "docs/adr/ADR-0006-style-version-pinning-and-mapping.md",
+      "line": 7,
+      "statement": "Styles/spaces are versioned; saved designs must remain compatible.",
+      "keyword": "MUST",
+      "raw_text": "Styles/spaces are versioned; saved designs must remain compatible. ",
+      "classification": "normative",
+      "triage_status": "open"
+    },
+    {
+      "id": "CAND-9ce449c1",
+      "source_file": "docs/adr/ADR-0008-legacy-edit-policy.md",
+      "line": 7,
+      "statement": "Legacy edit behavior must be deterministic and reflected in UI routing, API contracts, and persisted metadata.",
+      "keyword": "MUST",
+      "raw_text": "Legacy edit behavior must be deterministic and reflected in UI routing, API contracts, and persisted metadata.",
+      "classification": "normative",
+      "triage_status": "open"
+    }
+  ]
+}

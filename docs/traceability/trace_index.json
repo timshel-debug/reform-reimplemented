@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "requirements": [
+    {
+      "id": "REQ-2000",
+      "sources": [
+        "docs/requirements/sources/REQ-2000-auto-derived.md#L6-L9"
+      ],
+      "tests": [
+        "Verify: REQ-2000 - ASM-0008 \u2014 Retention window policy (PARTIAL/TODO)"
+      ],
+      "work_items": [
+        "SLICE-001"
+      ]
+    },
+    {
+      "id": "REQ-2001",
+      "sources": [
+        "docs/requirements/sources/REQ-2000-auto-derived.md#L10-L13"
+      ],
+      "tests": [
+        "Verify: REQ-2001 - ASM-0009 \u2014 Existing platform design identity (TODO)"
+      ],
+      "work_items": [
+        "SLICE-002"
+      ]
+    },
+    {
+      "id": "REQ-2002",
+      "sources": [
+        "docs/requirements/sources/REQ-2000-auto-derived.md#L14-L17"
+      ],
+      "tests": [
+        "Verify: REQ-2002 - OQ-0009 \u2014 Third-party legacy export API capabilities (TODO)"
+      ],
+      "work_items": [
+        "SLICE-003"
+      ]
+    },
+    {
+      "id": "REQ-2003",
+      "sources": [
+        "docs/requirements/sources/REQ-2000-auto-derived.md#L18-L21"
+      ],
+      "tests": [
+        "Verify: REQ-2003 - DecorationRevision (immutable)"
+      ],
+      "work_items": [
+        "SLICE-004"
+      ]
+    },
+    {
+      "id": "REQ-2004",
+      "sources": [
+        "docs/requirements/sources/REQ-2000-auto-derived.md#L22-L26"
+      ],
+      "tests": [
+        "Verify: REQ-2004 - Context"
+      ],
+      "work_items": [
+        "SLICE-005"
+      ]
+    }
+  ]
+}

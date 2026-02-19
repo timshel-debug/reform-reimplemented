@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0.0",
+  "next_numeric_id": 6,
+  "allocations": {
+    "docs/requirements/sources/REQ-2000-auto-derived.md:req-2000-asm-0008-retention-window-policy-partialtodo:a4a47a3d4248166a": "R-0001",
+    "docs/requirements/sources/REQ-2000-auto-derived.md:req-2001-asm-0009-existing-platform-design-identity-todo:fb45f74e258ab4af": "R-0002",
+    "docs/requirements/sources/REQ-2000-auto-derived.md:req-2002-oq-0009-third-party-legacy-export-api-capabilities-todo:23b26ddbcd45d2a0": "R-0003",
+    "docs/requirements/sources/REQ-2000-auto-derived.md:req-2003-decorationrevision-immutable:839af7b99f0a2ae5": "R-0004",
+    "docs/requirements/sources/REQ-2000-auto-derived.md:req-2004-context:d28ef0ec52b59010": "R-0005"
+  }
+}
